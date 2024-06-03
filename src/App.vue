@@ -6,6 +6,4 @@ import Show from './components/HomePage/Show.vue'
   <Show></Show>
 </template>
 
-<style scoped>
-/* @import '../src/styles/global.css'; */
-</style>
+<style scoped></style>
