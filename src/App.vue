@@ -1,5 +1,5 @@
 <script setup>
-import Show from './components/HomePage/Show.vue'
+import Show from './components/HomePage/ShowBg.vue'
 </script>
 
 <template>
