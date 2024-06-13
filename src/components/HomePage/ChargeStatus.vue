@@ -9,10 +9,11 @@
 .sts {
   position: relative;
   left: -10vw;
-  width: 10vw;
-  height: 30px;
+  /* width: 10vw;
+  height: 30px; */
   text-align: center;
   line-height: 33px;
+  font-size: 10px;
   background-color: aquamarine;
 }
 </style>

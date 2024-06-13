@@ -1,43 +1,51 @@
 <script setup>
-import { ref, defineAsyncComponent } from 'vue'
-const ChargeStatus = defineAsyncComponent(() => import('./ChargeStatus.vue'))
-const TechStack = defineAsyncComponent(() => import('./TechStack.vue'))
-var accTech = ref(false)
-var accStas = ref(false)
-function ShowTechStack() {
-  accTech.value = !accTech.value
-}
-function ShowStas() {
-  accStas.value = !accStas.value
-}
+import { defineProps, watch } from 'vue'
+const props = defineProps({
+  accTech: {
+    type: Boolean
+  },
+  accStas: {
+    type: Boolean
+  }
+})
+
+watch(
+  () => props.accStas,
+  (y) => {
+    console.log('管理状态存在性改变', y)
+  }
+)
 </script>
 <template>
   <div class="bottom">
     <div>
-      <div class="tech" @click="ShowTechStack">技术栈</div>
+      <slot name="header"></slot>
     </div>
-
     <div>
-      <div class="status" @click="ShowStas">状态管理库</div>
+      <slot name="sts"></slot>
     </div>
-
     <div class="githubIcon">这是github</div>
     <div class="juejinIcon">这是掘金</div>
     <div class="emailIcon">这是邮箱</div>
   </div>
-  <TechStack v-if="accTech"></TechStack>
-  <ChargeStatus v-if="accStas"></ChargeStatus>
+  <div class="test">
+    <div v-if="props.accTech"><slot name="techTail"></slot></div>
+    <div v-if="props.accStas"><slot name="stsDetail"></slot></div>
+  </div>
 </template>
 <style scoped>
 .bottom {
   font-family: '阿里妈妈东方大楷 Regular';
   display: flex;
   flex-wrap: wrap;
-  width: 100vw;
-  height: 10vh;
   justify-content: center;
   align-items: center;
-  line-height: 10vh;
   background-color: blueviolet;
+}
+.test {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 0;
+  width: 40vw;
 }
 </style>
