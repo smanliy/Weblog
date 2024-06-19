@@ -17,6 +17,13 @@ import '../src/assets/fonts/iconfont/iconfont.css'
 import SvgIcon from './assets/fonts/iconfont/SvgIcon.vue'
 
 
+import { createPinia } from 'pinia'
+// import { userStore } from './store/counter.js'
+
+
 const app = createApp(App)
+const pinia = createPinia()
+// const store = userStore()
 app.component('SvgIcon', SvgIcon)
+app.use(pinia)
 app.mount('#app')

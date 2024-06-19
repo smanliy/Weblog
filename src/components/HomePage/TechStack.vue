@@ -12,7 +12,7 @@ function ShowStas() {
 }
 </script>
 <template>
-  <ModuleSorted :accTech="accTech" :accStas="accStas">
+  <ModuleSorted>
     <template #header>
       <div class="tech" @click="ShowTechStack">技术栈</div>
     </template>
